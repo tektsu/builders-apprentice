@@ -1,0 +1,1 @@
+GRDB_SWIFT_OTHER_LDFLAGS = -l"sqlite3" -framework "Foundation"

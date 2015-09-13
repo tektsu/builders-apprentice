@@ -1,0 +1,10 @@
+PODS:
+  - GRDB.swift (0.15.0)
+
+DEPENDENCIES:
+  - GRDB.swift (= 0.15.0)
+
+SPEC CHECKSUMS:
+  GRDB.swift: 4e81e80fcac862c84b9e5c242df0930f0e71aeec
+
+COCOAPODS: 0.38.2

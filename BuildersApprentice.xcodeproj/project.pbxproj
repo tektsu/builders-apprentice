@@ -12,6 +12,8 @@
 		AA07317F1BA61B9300FCCFBB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA07317D1BA61B9300FCCFBB /* MainMenu.xib */; };
 		AA07318A1BA61B9300FCCFBB /* BuildersApprenticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0731891BA61B9300FCCFBB /* BuildersApprenticeTests.swift */; };
 		AA0731951BA61B9300FCCFBB /* BuildersApprenticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0731941BA61B9300FCCFBB /* BuildersApprenticeUITests.swift */; };
+		AA0731A81BA61E9700FCCFBB /* MasterCardListWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0731A61BA61E9700FCCFBB /* MasterCardListWindowController.swift */; settings = {ASSET_TAGS = (); }; };
+		AA0731A91BA61E9700FCCFBB /* MasterCardListWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA0731A71BA61E9700FCCFBB /* MasterCardListWindowController.xib */; settings = {ASSET_TAGS = (); }; };
 		CD31764989C9233035815A86 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046945F9DD36F548A4D4B372 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		AA0731901BA61B9300FCCFBB /* BuildersApprenticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildersApprenticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0731941BA61B9300FCCFBB /* BuildersApprenticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildersApprenticeUITests.swift; sourceTree = "<group>"; };
 		AA0731961BA61B9300FCCFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0731A61BA61E9700FCCFBB /* MasterCardListWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterCardListWindowController.swift; sourceTree = "<group>"; };
+		AA0731A71BA61E9700FCCFBB /* MasterCardListWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MasterCardListWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				AA07317B1BA61B9300FCCFBB /* Assets.xcassets */,
 				AA07317D1BA61B9300FCCFBB /* MainMenu.xib */,
 				AA0731801BA61B9300FCCFBB /* Info.plist */,
+				AA0731A61BA61E9700FCCFBB /* MasterCardListWindowController.swift */,
+				AA0731A71BA61E9700FCCFBB /* MasterCardListWindowController.xib */,
 			);
 			path = BuildersApprentice;
 			sourceTree = "<group>";
@@ -251,6 +257,7 @@
 			files = (
 				AA07317C1BA61B9300FCCFBB /* Assets.xcassets in Resources */,
 				AA07317F1BA61B9300FCCFBB /* MainMenu.xib in Resources */,
+				AA0731A91BA61E9700FCCFBB /* MasterCardListWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA07317A1BA61B9300FCCFBB /* AppDelegate.swift in Sources */,
+				AA0731A81BA61E9700FCCFBB /* MasterCardListWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

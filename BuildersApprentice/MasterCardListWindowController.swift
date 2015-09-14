@@ -11,6 +11,10 @@ import GRDB
 
 class MasterCardListWindowController: NSWindowController {
 
+  // List Display
+  dynamic var displayText: NSAttributedString = NSAttributedString(string: "")
+  @IBOutlet var textView: NSTextView!
+
   override var windowNibName: String? {
     return "MasterCardListWindowController"
   }
@@ -24,7 +28,6 @@ class MasterCardListWindowController: NSWindowController {
       if component == "" {
         continue
       }
-      //if component == "\u{2014}" {
       if component == "-" {
         hyphen = true
         continue
@@ -115,15 +118,27 @@ class MasterCardListWindowController: NSWindowController {
     return cardLists
   }
 
+  private func clearCardListView() {
+    displayText = NSAttributedString(string: "")
+  }
+
+  private func appendToCardListView(textToAdd: String) {
+    let mutableText = displayText.mutableCopy() as! NSMutableAttributedString
+    mutableText.appendAttributedString(NSAttributedString(string: textToAdd))
+    displayText = mutableText.copy() as! NSAttributedString
+  }
+
   func displayCardLists(cardLists: [String:[String:Bool]]) {
+    clearCardListView()
     let listNames = Array(cardLists.keys).sort(<)
     for listName in listNames {
-      var textToAdd = "[\(listName)]\n"
+      print(listName)
+      var textToAdd = "\n[\(listName)]\n"
       let cardNames = Array(cardLists[listName]!.keys).sort(<)
       for cardName in cardNames {
         textToAdd += "\(cardName)\n"
       }
-      print(textToAdd)
+      appendToCardListView(textToAdd)
     }
   }
 

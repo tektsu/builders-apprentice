@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MasterCardListWindowController" customModule="BuildersApprentice" customModuleProvider="target">
             <connections>
+                <outlet property="textView" destination="IGE-cy-Tcc" id="Jqc-ED-IS5"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -19,11 +20,56 @@
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="639" height="809"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOk-LA-HPG">
+                        <rect key="frame" x="20" y="20" width="599" height="769"/>
+                        <clipView key="contentView" id="Ix2-K4-z4B">
+                            <rect key="frame" x="1" y="1" width="582" height="767"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="IGE-cy-Tcc">
+                                    <rect key="frame" x="0.0" y="0.0" width="582" height="767"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="582" height="767"/>
+                                    <size key="maxSize" width="582" height="10000000"/>
+                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="582" height="767"/>
+                                    <size key="maxSize" width="582" height="10000000"/>
+                                    <connections>
+                                        <binding destination="-2" name="attributedString" keyPath="displayText" id="ZTS-VJ-u4T">
+                                            <dictionary key="options">
+                                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                <bool key="NSConditionallySetsEditable" value="NO"/>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="c9X-2J-OHS">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="GUI-S7-rbS">
+                            <rect key="frame" x="583" y="1" width="15" height="767"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qOk-LA-HPG" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" id="ENM-Vl-C5O"/>
+                    <constraint firstAttribute="trailing" secondItem="qOk-LA-HPG" secondAttribute="trailing" constant="20" id="RzF-Mj-nLB"/>
+                    <constraint firstItem="qOk-LA-HPG" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="gOL-EA-I0F"/>
+                    <constraint firstAttribute="bottom" secondItem="qOk-LA-HPG" secondAttribute="bottom" constant="20" id="ixp-wv-CjH"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
             <point key="canvasLocation" x="405.5" y="517.5"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="VFC-sI-OuK"/>
     </objects>
 </document>

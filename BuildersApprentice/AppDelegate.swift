@@ -13,18 +13,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   @IBOutlet weak var window: NSWindow!
 
-  var masterCardListWindowController: MasterCardListWindowController?
+  var masterCardListWindowController: MasterCardListWindowController? = nil
 
   func applicationDidFinishLaunching(aNotification: NSNotification) {
-    let masterCardListWindowController = MasterCardListWindowController()
-    self.masterCardListWindowController = masterCardListWindowController
-    self.masterCardListWindowController!.showWindow(self)
+
   }
 
   func applicationWillTerminate(aNotification: NSNotification) {
-    // Insert code here to tear down your application
+
   }
 
+  @IBAction func showMasterCardList(sender: AnyObject?) {
+    if masterCardListWindowController == nil {
+      let masterCardListWindowController = MasterCardListWindowController()
+      self.masterCardListWindowController = masterCardListWindowController
+    }
+    self.masterCardListWindowController!.showWindow(self)
+  }
 
 }
 

@@ -114,8 +114,8 @@
 			children = (
 				AA0731791BA61B9300FCCFBB /* AppDelegate.swift */,
 				AA07317B1BA61B9300FCCFBB /* Assets.xcassets */,
-				AA07317D1BA61B9300FCCFBB /* MainMenu.xib */,
 				AA0731801BA61B9300FCCFBB /* Info.plist */,
+				AA07317D1BA61B9300FCCFBB /* MainMenu.xib */,
 				AA0731A61BA61E9700FCCFBB /* MasterCardListWindowController.swift */,
 				AA0731A71BA61E9700FCCFBB /* MasterCardListWindowController.xib */,
 			);

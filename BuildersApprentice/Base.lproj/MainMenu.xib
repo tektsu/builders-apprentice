@@ -15,11 +15,11 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="BuildersApprentice" id="1Xt-HY-uBw">
+                <menuItem title="Builder's Apprentice" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="BuildersApprentice" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="Builder's Apprentice" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
-                            <menuItem title="About BuildersApprentice" id="5kV-Vb-QxS">
+                            <menuItem title="About Builder's Apprentice" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
@@ -33,7 +33,7 @@
                                 <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Hide BuildersApprentice" keyEquivalent="h" id="Olw-nP-bQN">
+                            <menuItem title="Hide Builder's Apprentice" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
                                     <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
                                 </connections>
@@ -51,7 +51,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Quit BuildersApprentice" keyEquivalent="q" id="4sb-4s-VLi">
+                            <menuItem title="Quit Builder's Apprentice" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
                                 </connections>
@@ -608,6 +608,13 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="View" id="HyV-fh-RgO">
                         <items>
+                            <menuItem title="Master Card List" keyEquivalent="m" id="vYH-hi-wE5">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="showMasterCardList:" target="Voe-Tx-rLC" id="m11-af-yN2"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="80x-df-yPf"/>
                             <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>

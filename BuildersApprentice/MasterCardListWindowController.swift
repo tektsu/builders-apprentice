@@ -15,16 +15,19 @@ class MasterCardListWindowController: NSWindowController {
   dynamic var displayText: NSAttributedString = NSAttributedString(string: "")
   @IBOutlet var textView: NSTextView!
 
+  // List Data
+  var cardLists = [String:[String:Bool]]()
+
   override var windowNibName: String? {
     return "MasterCardListWindowController"
   }
 
   // Generate a type name based on the type components we care about
-  func getNormalizedCardType(type: String) -> String {
+  private func getNormalizedCardType(type: String) -> String {
     var typeName = ""
-    let typeArray = type.componentsSeparatedByString(" ")
+    let typeComponents = type.componentsSeparatedByString(" ")
     var hyphen = false
-    for component in typeArray {
+    for component in typeComponents {
       if component == "" {
         continue
       }
@@ -60,7 +63,7 @@ class MasterCardListWindowController: NSWindowController {
     return typeName
   }
 
-  func getNormalizedCardColor(row: Row) -> String {
+  private func getNormalizedCardColor(row: Row) -> String {
     var cardColor: String? = nil
 
     for color in ["Black", "Blue", "Green", "Red", "White"] {
@@ -82,7 +85,7 @@ class MasterCardListWindowController: NSWindowController {
     return cardColor!
   }
 
-  func getListAndCardNames(row: Row) -> (listName: String, cardName: String) {
+  private func getListAndCardNames(row: Row) -> (listName: String, cardName: String) {
     let cardName: String = row.value(named: "cardname")!
     let cardType: String = getNormalizedCardType(row.value(named: "cardtype")!)
     let cardColor: String = getNormalizedCardColor(row)
@@ -90,13 +93,11 @@ class MasterCardListWindowController: NSWindowController {
     return (listName, cardName)
   }
 
-  func getDbPath() -> String {
+  private func getDbPath() -> String {
       return "/Users/steve/Library/Containers/com.deckedbuilder.deckedbuilder/Data/Library/com.deckedbuilder.deckedbuilder/dbdir-54/cards.sqlite"
   }
 
-  func generateCardLists() -> [String:[String:Bool]] {
-    var cardLists = [String:[String:Bool]]()
-
+  private func generateCardLists() -> [String:[String:Bool]] {
     do {
       let dbq = try DatabaseQueue(path: getDbPath())
       let rows = dbq.inDatabase { db in
@@ -128,11 +129,10 @@ class MasterCardListWindowController: NSWindowController {
     displayText = mutableText.copy() as! NSAttributedString
   }
 
-  func displayCardLists(cardLists: [String:[String:Bool]]) {
+  private func displayCardLists() {
     clearCardListView()
     let listNames = Array(cardLists.keys).sort(<)
     for listName in listNames {
-      print(listName)
       var textToAdd = "\n[\(listName)]\n"
       let cardNames = Array(cardLists[listName]!.keys).sort(<)
       for cardName in cardNames {
@@ -145,9 +145,49 @@ class MasterCardListWindowController: NSWindowController {
   override func windowDidLoad() {
     super.windowDidLoad()
 
-    let cardLists = generateCardLists()
-    displayCardLists(cardLists)
+    generateCardLists()
+    displayCardLists()
   }
 
+  private func writeMasterCardListsToFiles(directoryUrl: NSURL) {
+    let listNames = Array(self.cardLists.keys).sort(<)
+    for listName in listNames {
+      let fileUrl = directoryUrl.URLByAppendingPathComponent("mtglist \(listName).txt")
+      let cardNames = Array(self.cardLists[listName]!.keys).sort(<)
+      do {
+        try (cardNames.joinWithSeparator("\n") + "\n").writeToURL(fileUrl, atomically: true, encoding: NSUTF8StringEncoding)
+      }
+      catch let error as NSError {
+        let alert = NSAlert()
+        alert.messageText = "Error writing file: \(error)"
+        alert.addButtonWithTitle("OK")
+        alert.runModal()
+        return
+      }
+    }
+  }
+
+  @IBAction func saveMasterCardLists(sender: NSMenuItem) {
+    let savePanel = NSOpenPanel()
+    savePanel.canCreateDirectories = true
+    savePanel.canChooseDirectories = true
+    savePanel.canChooseFiles = false
+    savePanel.allowsMultipleSelection = false
+    savePanel.prompt = "Save"
+    savePanel.beginSheetModalForWindow(window!, completionHandler: {
+      [unowned savePanel] (result) in
+      if result == NSModalResponseOK {
+        if savePanel.URLs.count != 1 {
+          let alert = NSAlert()
+          alert.messageText = "No Directory Chosen"
+          alert.addButtonWithTitle("OK")
+          alert.runModal()
+          return
+        }
+        let directoryUrl = savePanel.URLs[0]
+        self.writeMasterCardListsToFiles(directoryUrl)
+      }
+    })
+  }
 }
 
